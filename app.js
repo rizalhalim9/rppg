@@ -66,7 +66,7 @@ async function startMeasurement() {
         
         // Get camera access
         stream = await navigator.mediaDevices.getUserMedia({ 
-            video: { facingMode: 'environment' } 
+            video: { facingMode: 'user' } 
         });
         video.srcObject = stream;
         await video.play();

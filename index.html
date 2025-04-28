@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rPPG Heart Rate Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #video-container {
+            position: relative;
+            margin: 20px 0;
+        }
+        #video {
+            background: #000;
+            width: 100%;
+            max-width: 640px;
+        }
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 640px;
+        }
+        #signalCanvas {
+            width: 100%;
+            max-width: 640px;
+            height: 200px;
+            background: #f0f0f0;
+            margin-top: 10px;
+        }
+        #controls {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background: #cccccc;
+        }
+        #stats {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .stat {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>rPPG Heart Rate Monitor</h1>
+    <p>Using camera-based pulse detection (remote PPG)</p>
+    
+    <div id="video-container">
+        <video id="video" playsinline></video>
+        <canvas id="canvas"></canvas>
+    </div>
+    <canvas id="signalCanvas"></canvas>
+    
+    <div id="controls">
+        <button id="startBtn">Start Measurement</button>
+        <button id="stopBtn" disabled>Stop</button>
+    </div>
+    
+    <div id="stats">
+        <div class="stat">Heart Rate: <span id="heartRate">--</span> bpm</div>
+        <div class="stat">FPS: <span id="fps">--</span></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
